@@ -913,6 +913,7 @@ pub(crate) fn socket_into_raw(socket: Socket) -> RawSocket {
     socket.into_raw_fd()
 }
 
+#[inline]
 pub(crate) fn socket(family: c_int, ty: c_int, protocol: c_int) -> io::Result<RawSocket> {
     syscall!(socket(family, ty, protocol))
 }
