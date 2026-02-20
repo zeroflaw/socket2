@@ -699,6 +699,7 @@ impl Socket {
     ///
     /// This is typically used on UDP or datagram-oriented sockets.
     #[doc = man_links!(sendto(2))]
+    #[inline]
     pub fn send_to(&self, buf: &[u8], addr: &SockAddr) -> io::Result<usize> {
         self.send_to_with_flags(buf, addr, 0)
     }
@@ -707,6 +708,7 @@ impl Socket {
     /// to the underlying `sendto` call.
     ///
     /// [`send_to`]: Socket::send_to
+    #[inline]
     pub fn send_to_with_flags(
         &self,
         buf: &[u8],
