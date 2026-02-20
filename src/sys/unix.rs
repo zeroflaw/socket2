@@ -1152,6 +1152,7 @@ pub(crate) fn send_vectored(
     sendmsg(fd, &msg, flags)
 }
 
+#[inline]
 pub(crate) fn send_to(
     fd: RawSocket,
     buf: &[u8],
