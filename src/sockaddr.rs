@@ -338,6 +338,7 @@ impl SockAddr {
 }
 
 impl From<SocketAddr> for SockAddr {
+    #[inline]
     fn from(addr: SocketAddr) -> SockAddr {
         match addr {
             SocketAddr::V4(addr) => addr.into(),
@@ -347,6 +348,7 @@ impl From<SocketAddr> for SockAddr {
 }
 
 impl From<SocketAddrV4> for SockAddr {
+    #[inline]
     fn from(addr: SocketAddrV4) -> SockAddr {
         // SAFETY: a `sockaddr_storage` of all zeros is valid.
         let mut storage = unsafe { mem::zeroed::<sockaddr_storage>() };
@@ -384,6 +386,7 @@ impl From<SocketAddrV4> for SockAddr {
 }
 
 impl From<SocketAddrV6> for SockAddr {
+    #[inline]
     fn from(addr: SocketAddrV6) -> SockAddr {
         // SAFETY: a `sockaddr_storage` of all zeros is valid.
         let mut storage = unsafe { mem::zeroed::<sockaddr_storage>() };
