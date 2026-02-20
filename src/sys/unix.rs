@@ -1201,6 +1201,7 @@ const fn from_timeval(duration: libc::timeval) -> Option<Duration> {
 }
 
 /// Wrapper around `setsockopt` to deal with platform specific timeouts.
+#[inline]
 pub(crate) fn set_timeout_opt(
     fd: RawSocket,
     opt: c_int,
