@@ -1212,6 +1212,7 @@ pub(crate) fn set_timeout_opt(
     unsafe { setsockopt(fd, opt, val, duration) }
 }
 
+#[inline]
 fn into_timeval(duration: Option<Duration>) -> libc::timeval {
     match duration {
         // https://github.com/rust-lang/libc/issues/1848
