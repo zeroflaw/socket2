@@ -1106,6 +1106,7 @@ impl Socket {
     ///
     /// If `timeout` is `None`, then `read` and `recv` calls will block
     /// indefinitely.
+    #[inline]
     pub fn set_read_timeout(&self, duration: Option<Duration>) -> io::Result<()> {
         sys::set_timeout_opt(self.as_raw(), sys::SOL_SOCKET, sys::SO_RCVTIMEO, duration)
     }
