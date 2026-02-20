@@ -83,6 +83,7 @@ impl Socket {
     /// this should really be marked `unsafe`, but this being an internal
     /// function, often passed as mapping function, it's makes it very
     /// inconvenient to mark it as `unsafe`.
+    #[inline]
     pub(crate) fn from_raw(raw: sys::RawSocket) -> Socket {
         Socket {
             // SAFETY: the caller must ensure that `raw` is a valid file
