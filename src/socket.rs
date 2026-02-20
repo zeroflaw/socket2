@@ -530,6 +530,7 @@ impl Socket {
     /// [`recv`].
     ///
     /// [`recv`]: Socket::recv
+    #[inline]
     pub fn recv_from(&self, buf: &mut [MaybeUninit<u8>]) -> io::Result<(usize, SockAddr)> {
         self.recv_from_with_flags(buf, 0)
     }
@@ -538,6 +539,7 @@ impl Socket {
     /// flags to the underlying `recvfrom` call.
     ///
     /// [`recv_from`]: Socket::recv_from
+    #[inline]
     pub fn recv_from_with_flags(
         &self,
         buf: &mut [MaybeUninit<u8>],
