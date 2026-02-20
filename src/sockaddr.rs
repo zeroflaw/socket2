@@ -312,6 +312,7 @@ impl SockAddr {
 
     /// Returns this address as a [`SocketAddrV4`] if it is in the `AF_INET`
     /// family.
+    #[inline]
     pub fn as_socket_ipv4(&self) -> Option<SocketAddrV4> {
         match self.as_socket() {
             Some(SocketAddr::V4(addr)) => Some(addr),
@@ -321,6 +322,7 @@ impl SockAddr {
 
     /// Returns this address as a [`SocketAddrV6`] if it is in the `AF_INET6`
     /// family.
+    #[inline]
     pub fn as_socket_ipv6(&self) -> Option<SocketAddrV6> {
         match self.as_socket() {
             Some(SocketAddr::V6(addr)) => Some(addr),
