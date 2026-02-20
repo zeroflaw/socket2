@@ -191,6 +191,7 @@ impl Socket {
     /// On Cygwin, a Unix domain socket connect blocks until the server accepts
     /// it. If the behavior is not expected, try [`Socket::set_no_peercred`]
     /// (Cygwin only).
+    #[inline]
     #[allow(rustdoc::broken_intra_doc_links)] // Socket::set_no_peercred
     pub fn connect(&self, address: &SockAddr) -> io::Result<()> {
         sys::connect(self.as_raw(), address)
