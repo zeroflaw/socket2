@@ -1060,6 +1060,7 @@ pub(crate) fn recv(fd: RawSocket, buf: &mut [MaybeUninit<u8>], flags: c_int) -> 
     .map(|n| n as usize)
 }
 
+#[inline]
 pub(crate) fn recv_from(
     fd: RawSocket,
     buf: &mut [MaybeUninit<u8>],
