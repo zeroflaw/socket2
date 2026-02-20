@@ -318,7 +318,6 @@ impl Socket {
     /// [bound].
     ///
     /// [bound]: Socket::bind
-    #[inline]
     pub fn local_addr(&self) -> io::Result<SockAddr> {
         sys::getsockname(self.as_raw())
     }
