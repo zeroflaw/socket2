@@ -985,6 +985,7 @@ pub(crate) fn accept(fd: RawSocket) -> io::Result<(RawSocket, SockAddr)> {
     unsafe { SockAddr::try_init(|storage, len| syscall!(accept(fd, storage.cast(), len))) }
 }
 
+#[inline]
 pub(crate) fn getsockname(fd: RawSocket) -> io::Result<SockAddr> {
     // Safety: `accept` initialises the `SockAddr` for us.
     unsafe { SockAddr::try_init(|storage, len| syscall!(getsockname(fd, storage.cast(), len))) }
