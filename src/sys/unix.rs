@@ -901,6 +901,7 @@ impl SockAddr {
 pub(crate) type Socket = std::os::fd::OwnedFd;
 pub(crate) type RawSocket = c_int;
 
+#[inline]
 pub(crate) unsafe fn socket_from_raw(socket: RawSocket) -> Socket {
     Socket::from_raw_fd(socket)
 }
