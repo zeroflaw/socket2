@@ -929,6 +929,7 @@ pub(crate) fn bind(fd: RawSocket, addr: &SockAddr) -> io::Result<()> {
     syscall!(bind(fd, addr.as_ptr().cast::<sockaddr>(), addr.len() as _)).map(|_| ())
 }
 
+#[inline]
 pub(crate) fn connect(fd: RawSocket, addr: &SockAddr) -> io::Result<()> {
     syscall!(connect(fd, addr.as_ptr().cast::<sockaddr>(), addr.len())).map(|_| ())
 }
