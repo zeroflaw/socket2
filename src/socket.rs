@@ -111,6 +111,7 @@ impl Socket {
     /// the socket is made non-inheritable.
     ///
     /// [`Socket::new_raw`] can be used if you don't want these flags to be set.
+    #[inline]
     #[doc = man_links!(socket(2))]
     pub fn new(domain: Domain, ty: Type, protocol: Option<Protocol>) -> io::Result<Socket> {
         let ty = set_common_type(ty);
@@ -121,6 +122,7 @@ impl Socket {
     ///
     /// This function corresponds to `socket(2)` on Unix and `WSASocketW` on
     /// Windows and simply creates a new socket, no other configuration is done.
+    #[inline]
     pub fn new_raw(domain: Domain, ty: Type, protocol: Option<Protocol>) -> io::Result<Socket> {
         let protocol = protocol.map_or(0, |p| p.0);
         sys::socket(domain.0, ty.0, protocol).map(Socket::from_raw)
